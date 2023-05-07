@@ -3,9 +3,10 @@ $(document).ready(onReady);
 function onReady() {
     console.log('We have jquery $$$');
     $('#submit-btn').on('click' , submitHandle);
-    $('#tablebody').on('click','.delete-Btn', handleDelete)
+    $('#tablebody').on('click','.delete-btn', handleDelete)
 }
 
+let totalMonth = 0;
 
 function submitHandle(event) {
 
@@ -37,7 +38,7 @@ function submitHandle(event) {
             ${annualSalary}
         </td>
         <td>
-            <button class= 'delete-btn'>❌</button>
+            <button class= 'delete-btn'>Delete❌</button>
         </td>
         
     </tr>
@@ -48,9 +49,17 @@ function submitHandle(event) {
     $('#identification').val('');
     $('#title-name').val('');
     $('#annual-salary').val('');
+
+    totalMonth+=Math.round(annualSalary/12)
+    $('#totalMonth').text(totalMonth)
+    if(totalMonth>20000){
+        $('#monthlyContainer').css('background-color', 'red')
+    }
+       
+
 }
 
 function handleDelete() {
-    $(this).parent().remove
+    $(this).closest('tr').remove()
 }
 

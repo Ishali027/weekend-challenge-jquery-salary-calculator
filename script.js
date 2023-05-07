@@ -53,9 +53,9 @@ function submitHandle(event) {
     totalMonth+=Math.round(annualSalary/12)
     $('#totalMonth').text(totalMonth)
     if(totalMonth>20000){
-        $('#monthlyContainer').css('background-color', 'red')
-    }
-       
+        $('#monthlyContainer').css('background-color', 'gray')
+        $('#monthlyContainer').css('color', 'red')
+    }   
 
 }
 
